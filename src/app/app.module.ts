@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SearchPage } from '../pages/search/search';
 import { SettingsPage } from '../pages/settings/settings';
+import { TestPage } from '../pages/test/test';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -15,6 +16,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     HomePage,
     SearchPage,
     SettingsPage,
+    TestPage,
     TabsPage
   ],
   imports: [
@@ -26,6 +28,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     HomePage,
     SearchPage,
     SettingsPage,
+    TestPage,
     TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
