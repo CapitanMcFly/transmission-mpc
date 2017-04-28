@@ -9,6 +9,7 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SettingsPage {
 
+  host: string;
   listen_port: string;
   api_path: string;
   user: string;
@@ -18,6 +19,7 @@ export class SettingsPage {
 
     storage.get('settings_saved').then( value => {
       if(value === "true"){
+        this.storage.get('host').then( host => this.host = host);
         this.storage.get('listen_port').then( listen_port => this.listen_port = listen_port);
         this.storage.get('api_path').then( api_path => this.api_path = api_path);
         this.storage.get('user').then( user => this.user = user);
@@ -34,6 +36,7 @@ export class SettingsPage {
 
   saveSettings(){
     this.storage.set('settings_saved', 'true');
+    this.storage.set('host', this.host);
     this.storage.set('listen_port', this.listen_port);
     this.storage.set('api_path', this.api_path);
     this.storage.set('user', this.user);
