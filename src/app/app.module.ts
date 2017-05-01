@@ -10,6 +10,8 @@ import { TestPage } from '../pages/test/test';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
+import { ConnectionInfo } from '../providers/connection-info';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -31,6 +33,6 @@ import { TabsPage } from '../pages/tabs/tabs';
     TestPage,
     TabsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage, ConnectionInfo]
 })
 export class AppModule {}

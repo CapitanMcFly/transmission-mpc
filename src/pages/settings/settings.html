@@ -13,31 +13,29 @@
 
     <ion-item>
       <ion-label floating>Host</ion-label>
-      <ion-input type="text" [(ngModel)]="host"></ion-input>
+      <ion-input type="text" [(ngModel)]="this.connectionInfo.host_dir"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Port</ion-label>
-      <ion-input type="text" [(ngModel)]="listen_port"></ion-input>
+      <ion-input type="number" [(ngModel)]="this.connectionInfo.listen_port"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>API path</ion-label>
-      <ion-input type="text" [(ngModel)]="api_path"></ion-input>
+      <ion-input type="text" [(ngModel)]="this.connectionInfo.api_path"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>User</ion-label>
-      <ion-input type="text" [(ngModel)]="user"></ion-input>
+      <ion-input type="text" [(ngModel)]="this.connectionInfo.user"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="pass"></ion-input>
+      <ion-input type="password" [(ngModel)]="this.connectionInfo.pass"></ion-input>
     </ion-item>
 
   </ion-list>
-
-  <button ion-button block (click)="saveSettings()">Save settings</button>
 
 </ion-content>
