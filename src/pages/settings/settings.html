@@ -9,33 +9,33 @@
 
 <ion-content>
 
-  <ion-list>
+  <form [formGroup]="settings">
 
     <ion-item>
       <ion-label floating>Host</ion-label>
-      <ion-input type="text" [(ngModel)]="this.connectionInfo.host_dir"></ion-input>
+      <ion-input type="text" formControlName="host_dir" [(ngModel)]="this.connectionInfo.host_dir"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Port</ion-label>
-      <ion-input type="number" [(ngModel)]="this.connectionInfo.listen_port"></ion-input>
+      <ion-input type="number" formControlName="listen_port" [(ngModel)]="this.connectionInfo.listen_port"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>API path</ion-label>
-      <ion-input type="text" [(ngModel)]="this.connectionInfo.api_path"></ion-input>
+      <ion-input type="text" formControlName="api_path" [(ngModel)]="this.connectionInfo.api_path"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>User</ion-label>
-      <ion-input type="text" [(ngModel)]="this.connectionInfo.user"></ion-input>
+      <ion-input type="text" formControlName="user" [(ngModel)]="this.connectionInfo.user"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="this.connectionInfo.pass"></ion-input>
+      <ion-input type="password" formControlName="pass" [(ngModel)]="this.connectionInfo.pass"></ion-input>
     </ion-item>
 
-  </ion-list>
+  </form>
 
 </ion-content>

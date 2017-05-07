@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { ConnectionInfo } from '../../providers/connection-info';
 
@@ -10,8 +11,20 @@ import { ConnectionInfo } from '../../providers/connection-info';
 })
 export class SettingsPage {
 
-  constructor(public storage: Storage, public connectionInfo: ConnectionInfo) {
+  private settings : FormGroup;
 
+  constructor(
+    public storage: Storage,
+    public connectionInfo: ConnectionInfo,
+    private formBuilder: FormBuilder
+  ) {
+    this.settings = this.formBuilder.group({
+      host_dir: [''],
+      listen_port: [''],
+      api_path: [''],
+      user: [''],
+      pass: ['']
+    });
   }
 
   ionViewDidLeave(){
