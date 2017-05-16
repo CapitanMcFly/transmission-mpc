@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Events } from 'ionic-angular';
 
 import { ConnectionInfo } from '../../providers/connection-info';
 
@@ -16,7 +17,8 @@ export class SettingsPage {
   constructor(
     public storage: Storage,
     public connectionInfo: ConnectionInfo,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public events: Events
   ) {
     this.settings = this.formBuilder.group({
       host_dir: [''],
@@ -31,6 +33,8 @@ export class SettingsPage {
     // Settings are only stored if any field in the form has changed
     if(this.settings.dirty){
 
+      // console.log("Form is dirty");
+
       this.connectionInfo.userpass_b64 = btoa(this.connectionInfo.user+":"+this.connectionInfo.pass);
       // Store connection data on secondary memory
       this.storage.set('settings_saved', true);
@@ -41,6 +45,9 @@ export class SettingsPage {
 
       // Mark the form as pristine again
       this.settings.markAsPristine();
+
+      // Publish the try_connection event
+      this.events.publish('user:try_connection');
 
     }
   }
